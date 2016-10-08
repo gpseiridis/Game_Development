@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class BrickScript : MonoBehaviour {
+    //reference to the UI script
+    public UiManager ui;
 
 	// Use this for initialization
 	void Start () {
-	
+        ui = GameObject.FindWithTag("ui").GetComponent<UiManager>();
 	}
 	
 	// Update is called once per frame
@@ -17,9 +19,10 @@ public class BrickScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Ball")
         {
-           // Destroy(gameObject);
+            ui.IncrementScore();
+            Destroy(gameObject);
            // added this to make it bounce back. Left it commented in case I change my mind later
-            Destroy(gameObject, 0.2f); 
+           // Destroy(gameObject, 0.1f); 
         }
     }
 }
