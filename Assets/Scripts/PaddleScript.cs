@@ -6,6 +6,7 @@ public class PaddleScript : MonoBehaviour {
     public Rigidbody2D rb;
     public float speed;
     public float maxX;
+    public bool screenTouch =false;
 
     // Use this for initialization
     void Start() {
@@ -14,6 +15,23 @@ public class PaddleScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        float y_pos = 95.5f;
+
+       
+        if(Input.GetMouseButtonDown(0))
+        {
+            screenTouch = true;
+           
+        }
+        if (screenTouch != false) { 
+       
+            Vector2 curScreenPoint = new Vector2(Input.mousePosition.x, y_pos);
+            Vector2 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+            transform.position = curPosition;
+
+        }
+
         float x = Input.GetAxis("Horizontal");
 
         //movement
@@ -49,4 +67,6 @@ public class PaddleScript : MonoBehaviour {
     {
         rb.velocity = Vector2.zero;
     }
+   
+    
 }

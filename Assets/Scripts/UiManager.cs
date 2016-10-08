@@ -16,6 +16,11 @@ public class UiManager : MonoBehaviour {
 	void Update () {
 	
 	}
+    public void IncrementScore()
+    {
+        score++;
+        scoreText.text = "Score: " + score;
+    }
 
-  
+
 }
