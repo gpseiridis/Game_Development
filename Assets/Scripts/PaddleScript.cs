@@ -8,11 +8,12 @@ public class PaddleScript : MonoBehaviour
     public float speed;
     public float maxX;
     public bool screenTouch = false;
+    public UiManager ui;
 
     // Use this for initialization
     void Start()
     {
-
+        ui = GameObject.FindWithTag("ui").GetComponent<UiManager>();
     }
 
     // Update is called once per frame
@@ -41,4 +42,12 @@ public class PaddleScript : MonoBehaviour
 
 
     }
-}
+    void OnCollisionEnter2D(Collision2D col)
+
+    {
+        if (col.gameObject.tag == "Ball")
+        {
+            ui.DecrementScore();
+        }
+    }
+}// end
