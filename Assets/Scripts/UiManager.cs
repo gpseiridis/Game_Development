@@ -4,24 +4,35 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour {
 
-    int score = 0;
-    public int lives = 3;
+    public int lives;
+    private int score;
     public Text scoreText;
     public Text livesText;
+    public static UiManager instance = null;
+
 
     // Use this for initialization
     void Start () {
-	
-	}
+        lives = PlayerPrefs.GetInt("CurrentLives");
+        score = PlayerPrefs.GetInt("CurrentScore");
+        livesText.text = "Lives: " + lives;
+        scoreText.text = "Score: " + score;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-       // livesText.text = "Lives: " + lives;
+      
     }
+
+
+
     public void IncrementScore()
     {
+     
         score++;
+        //scoreText.text = "Score: " + score;
         scoreText.text = "Score: " + score;
+        PlayerPrefs.SetInt("CurrentScore", score);
     }
     public void DecrementScore()
     {
@@ -31,11 +42,14 @@ public class UiManager : MonoBehaviour {
             score = 0;
         }
         scoreText.text = "Score: " + score;
+        PlayerPrefs.SetInt("CurrentScore", score);
     }
     public void DecrementLives()
     {
+        
         lives--;
         livesText.text = "Lives: " + lives;
+        PlayerPrefs.SetInt("CurrentLives", lives);
     }
 
 }
