@@ -48,6 +48,7 @@ public class PaddleScript : MonoBehaviour
         if (col.gameObject.tag == "Ball")
         {
             ui.DecrementScore();
+            
         }
     }
 }// end

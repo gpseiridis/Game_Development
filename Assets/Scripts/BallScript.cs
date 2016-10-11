@@ -26,7 +26,7 @@ public class BallScript : MonoBehaviour
         // if (Input.GetKeyUp(KeyCode.Space) && gameStarted == false){
         //for checking if the screen is touched now instead of pressing SPACE
         //  if (Input.touches.Length>1 && gameStarted == false)
-       
+
 
         if (Input.GetMouseButtonDown(0) && gameStarted == false)
         {
@@ -41,4 +41,14 @@ public class BallScript : MonoBehaviour
 
         }
     }
-}
+    void OnCollisionEnter2D(Collision2D col)
+
+    {
+        GameObject paddle = GameObject.Find("paddleRed");
+        Vector2 paddlePosition = paddle.transform.position;
+        Vector2 ballPosition = gameObject.transform.position;
+
+     
+
+    }
+}//end script
