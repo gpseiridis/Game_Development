@@ -3,21 +3,29 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour {
 
-	public void LoadLevel(string name){
-		
-		Application.LoadLevel (name);
-	}
+    public void LoadLevel(string name) {
 
-	public void QuitRequest(){
-		Debug.Log ("Game eXited");
-		Application.Quit ();
-	}
+        Application.LoadLevel(name);
+    }
+
+    public void QuitRequest() {
+        Debug.Log("Game eXited");
+        Application.Quit();
+    }
 
     public void LoadNextLevel()
     {
         //pass level based on the build settings and index.
         // level 1 ---> level 2 ---> .... ---> level N ---> Win Screen
         Application.LoadLevel(Application.loadedLevel + 1);
+    }
+
+    public void BrickDestroyed()
+    {
+        if (BrickScript.bricks <=0)
+        {
+            LoadNextLevel();
+        }
     }
 
 }

@@ -51,7 +51,7 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        // Hit the Racket?
+        // Check if hit the Paddle
         if (col.gameObject.name == "Paddle")
         {
             // Calculate hit Factor
@@ -66,6 +66,14 @@ public class BallScript : MonoBehaviour
             
             GetComponent<Rigidbody2D>().velocity = dir * 10f;
         }
+        // I want to add some extra physics when the ball hits something
+        Vector2 bounce = new Vector2(Random.Range(0f, 0.5f), Random.Range(0f, 0.5f));
+
+        if (gameStarted)
+        {
+            GetComponent<Rigidbody2D>().velocity += bounce;
+        }
+
     }
 
 }//end of BallScript
