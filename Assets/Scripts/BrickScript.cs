@@ -71,6 +71,7 @@ public class BrickScript : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().sprite = spritesArray[spriteIndex];
         }
     }
+
     //TDOO remove when we actually win
     void YouWin() 
     {

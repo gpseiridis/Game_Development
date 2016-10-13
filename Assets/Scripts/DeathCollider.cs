@@ -18,8 +18,11 @@ public class DeathCollider : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
 
+        //instead of game over, call decrement lives in the Level Manager
+        // if out of lives, the Level Manager will be responsible to call game over
         Debug.Log("Collided!!!");
-        levelManager.LoadLevel("Game Over");
+        // levelManager.LoadLevel("Game Over");
+        levelManager.DecrementLives();
 
     }
 }
