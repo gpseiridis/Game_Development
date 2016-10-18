@@ -4,9 +4,13 @@ using System.Collections;
 public class DeathCollider : MonoBehaviour {
 
     private LevelManager levelManager;
+    private Paddle paddle;
+    private BallScript ball;
 	// Use this for initialization
 	void Start () {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        paddle = GameObject.FindObjectOfType<Paddle>();
+        ball = GameObject.FindObjectOfType<BallScript>();
     }
 	
 	// Update is called once per frame
@@ -24,5 +28,8 @@ public class DeathCollider : MonoBehaviour {
         // levelManager.LoadLevel("Game Over");
         levelManager.DecrementLives();
 
+        //making the ball go to the paddle everytime it hits the floor and start the game over
+        ball.gameStarted = false;
+        ball.paddleHitCounter = 0;
     }
 }
