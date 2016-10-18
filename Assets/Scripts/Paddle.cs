@@ -32,7 +32,7 @@ public class Paddle : MonoBehaviour {
         float mousePosition = Input.mousePosition.x / Screen.width * 16;
 
         //Mathf.clamp to restric the position of my paddle
-        paddlePosition.x = Mathf.Clamp(mousePosition, 1.4f, 14.56f);
+        paddlePosition.x = Mathf.Clamp(mousePosition, 1.95f, 14.06f);
         this.transform.position = paddlePosition;
 
     }
@@ -45,7 +45,7 @@ public class Paddle : MonoBehaviour {
         //float mousePosition = Input.mousePosition.x / Screen.width * 16;    
         Vector3 ballPosition = ball.transform.position;
 
-        paddlePosition.x = Mathf.Clamp(ballPosition.x, 1.4f, 14.56f);
+        paddlePosition.x = Mathf.Clamp(ballPosition.x, 2.0f, 14.01f);
         this.transform.position = paddlePosition;
     }
 }
