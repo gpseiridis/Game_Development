@@ -31,5 +31,10 @@ public class DeathCollider : MonoBehaviour {
         //making the ball go to the paddle everytime it hits the floor and start the game over
         ball.gameStarted = false;
         ball.paddleHitCounter = 0;
+        ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        ball.wallAndBrickHitCounter = 0;
+        ball.ballSpeed = 20f;
+       
+
     }
 }
