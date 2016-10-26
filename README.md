@@ -12,4 +12,8 @@ Development of a simple Breakout - Arkanoid clone
 Automated Testing. The paddle will follow the ball
 
 ![10th](https://cloud.githubusercontent.com/assets/11699168/19621465/d7ad611a-9892-11e6-9b90-716fb524d243.gif)
-
+<br> <br>
+new level 
+" 水蓝: waterblue"
+(in progress)<br> <br>
+![waterblue](https://cloud.githubusercontent.com/assets/11699168/19708742/29b4a226-9b21-11e6-82c6-ba390d6a0b5d.png)
