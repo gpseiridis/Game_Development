@@ -25,16 +25,24 @@ public class DeathCollider : MonoBehaviour {
         //instead of game over, call decrement lives in the Level Manager
         // if out of lives, the Level Manager will be responsible to call game over
         Debug.Log("Collided!!!");
-        // levelManager.LoadLevel("Game Over");
+
+
         levelManager.DecrementLives();
 
+
         //making the ball go to the paddle everytime it hits the floor and start the game over
+        
         ball.gameStarted = false;
         ball.paddleHitCounter = 0;
+        
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         ball.wallAndBrickHitCounter = 0;
         ball.ballSpeed = 20f;
        
 
     }
+
+
+
+
 }

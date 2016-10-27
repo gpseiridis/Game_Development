@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-    private int lives = 100;
+    private int lives = 5;
 	// Use this for initialization
 	void Start () {
         PlayerPrefs.SetInt("CurrentLives", lives);
