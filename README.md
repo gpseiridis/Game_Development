@@ -3,6 +3,10 @@ Game Development using Unity 3D and C# scripting
 
 Development of a simple Breakout - Arkanoid clone
 
+<br>
+Added background music based on  <a href="https://soundcloud.com/geopse/2-players-sid-project">one of my songs.</a>
+
+<br>
 
 ![screen0](https://cloud.githubusercontent.com/assets/11699168/19621423/c89f58a0-9891-11e6-9fe2-93ebf074c8d5.png)
 
