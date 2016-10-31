@@ -24,8 +24,6 @@ public class BallScript : MonoBehaviour
         paddle = FindObjectOfType<Paddle>();
         paddleToBallVector = this.transform.position - paddle.transform.position;
 
-        
-
     }
 
     // Update is called once per frame
@@ -49,8 +47,7 @@ public class BallScript : MonoBehaviour
         //limiting the speed of the ball       
         if (ballSpeed >= maxSpeed)
         {
-
-
+            
             ballSpeed = maxSpeed;
 
         }
