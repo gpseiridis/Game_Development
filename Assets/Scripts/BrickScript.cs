@@ -7,13 +7,18 @@ public class BrickScript : MonoBehaviour {
     private int timesHit;
     private LevelManager levelManager;
     private bool Breakable;
+    private int chanceToInvoke = 1;
+
+    public Powerup powerup;
 
     public Sprite[] spritesArray;
     public static int bricks  = 0;
+    private Powerup[] powerups;
 
     // Use this for initialization
     void Start() {
-        //will be true if the current brick has a Tag of breakable
+        powerups = GameObject.FindObjectsOfType<Powerup>();
+
         Breakable = (this.tag == "Breakable");
         if (Breakable)
         {
@@ -22,23 +27,28 @@ public class BrickScript : MonoBehaviour {
 
         timesHit = 0;
         levelManager = GameObject.FindObjectOfType<LevelManager>();
-
+ 
+        //ignores collision with bricks. however you have to make sure only one powerup at the time
+       Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), powerup.GetComponent<Collider2D>());
     }
 
     // Update is called once per frame
     void Update() {
-
+        powerups = GameObject.FindObjectsOfType<Powerup>();
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
         
-        if (Breakable) { 
+        if (Breakable) {
+
             HitHandler();
+
+
         }
 
-        
-       
+
+
 
     }
 
@@ -50,10 +60,14 @@ public class BrickScript : MonoBehaviour {
         maxHits = spritesArray.Length + 1;
         if (timesHit == maxHits)
         {
+            instantiatePowerUp();
             bricks--;
             //BrickDestroyed is called everytime we actually destroyed a brick.
             levelManager.BrickDestroyed();
             Destroy(gameObject);
+            
+            
+
         }
         else
         {
@@ -70,6 +84,22 @@ public class BrickScript : MonoBehaviour {
         if (spritesArray[spriteIndex]) { 
         this.GetComponent<SpriteRenderer>().sprite = spritesArray[spriteIndex];
         }
+    }
+
+    void instantiatePowerUp()
+    {
+        //powerup will instantiate if based on a given probability and only if there is no other powerup around
+        if(Random.Range(0, chanceToInvoke) == 0 && powerups.Length<1)
+        {
+            
+            Debug.Log("Lets create a powerup!");
+       //  Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        //Instantiate(powerup, pos, Quaternion.identity);      
+
+      Instantiate(powerup, transform.position, transform.rotation);
+     
+
+       }
     }
 
     

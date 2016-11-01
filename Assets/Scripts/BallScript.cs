@@ -68,7 +68,7 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        // Check if hit the Paddle
+
         if (col.gameObject.name == "Paddle" && gameStarted)
         {
             paddleHitCounter++;

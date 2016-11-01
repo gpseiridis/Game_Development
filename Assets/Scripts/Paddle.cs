@@ -7,7 +7,6 @@ public class Paddle : MonoBehaviour {
     public bool isBig = false;
 
     private BallScript ball;
-    //private float bigPaddle= 0.9f;
     private float bigPaddle;
     
 

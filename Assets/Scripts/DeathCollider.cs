@@ -6,13 +6,16 @@ public class DeathCollider : MonoBehaviour {
     private LevelManager levelManager;
     private Paddle paddle;
     private BallScript ball;
-    private Powerup powerup;
+ 
+
+  //  public Powerup[] powerUpArray;
+ 
 	// Use this for initialization
 	void Start () {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         paddle = GameObject.FindObjectOfType<Paddle>();
         ball = GameObject.FindObjectOfType<BallScript>();
-        powerup = GameObject.FindObjectOfType<Powerup>();
+
     }
 	
 	// Update is called once per frame
@@ -23,10 +26,14 @@ public class DeathCollider : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        
-        
+
+
         //instead of game over, call decrement lives in the Level Manager
         // if out of lives, the Level Manager will be responsible to call game over
+        if (coll.gameObject.name == "Ball")
+        {
+
+       
         Debug.Log("Collided!!!");
 
         levelManager.DecrementLives();
@@ -39,7 +46,12 @@ public class DeathCollider : MonoBehaviour {
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         ball.wallAndBrickHitCounter = 0;
         ball.ballSpeed = 20f;
-     
+        paddle.transform.localScale = new Vector3(5f, 5f, 1f);
+
+
+
+
+        }
 
     }
 
