@@ -7,17 +7,19 @@ public class BrickScript : MonoBehaviour {
     private int timesHit;
     private LevelManager levelManager;
     private bool Breakable;
-    private int chanceToInvoke = 1;
+    private int chanceToInvoke = 2;
 
     public Powerup powerup;
 
     public Sprite[] spritesArray;
     public static int bricks  = 0;
     private Powerup[] powerups;
+    private Powerup[] powerupClones;
 
     // Use this for initialization
     void Start() {
         powerups = GameObject.FindObjectsOfType<Powerup>();
+        
 
         Breakable = (this.tag == "Breakable");
         if (Breakable)
@@ -28,8 +30,7 @@ public class BrickScript : MonoBehaviour {
         timesHit = 0;
         levelManager = GameObject.FindObjectOfType<LevelManager>();
  
-        //ignores collision with bricks. however you have to make sure only one powerup at the time
-       Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), powerup.GetComponent<Collider2D>());
+
     }
 
     // Update is called once per frame
@@ -43,7 +44,6 @@ public class BrickScript : MonoBehaviour {
         if (Breakable) {
 
             HitHandler();
-
 
         }
 
