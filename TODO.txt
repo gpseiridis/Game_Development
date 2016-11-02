@@ -1,0 +1,6 @@
+1. vale 2o powerup na phgainei pio siga
+2. vale hxo kathe fora pou ktupaei ta bricks
+3. refactor ton kwdika afou den exeis pleon klwnous apo balles
+4. ftiakse scoresystem me vash, oses fores sinexomena ktipas bricks parapanw podous, otan ktipaei paddle afto to extra midenizetai
+5. ftiakse powerups me vash tis pithanotites, apo 0 ews 100 kserw gw kai vale ena poly mikro na pernas thn pista
+6. ftiakse ligo ta sprites kai isws na valeis animations

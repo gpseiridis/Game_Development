@@ -20,11 +20,10 @@ public class BallScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         paddle = FindObjectOfType<Paddle>();
         paddleToBallVector = this.transform.position - paddle.transform.position;
-
-        
 
     }
 
@@ -34,6 +33,7 @@ public class BallScript : MonoBehaviour
        
         if (!gameStarted)
         {
+            transform.localScale = new Vector3(2, 2, 1);
             //ball stay with the paddle
             this.transform.position = paddle.transform.position + paddleToBallVector;
    
@@ -49,8 +49,7 @@ public class BallScript : MonoBehaviour
         //limiting the speed of the ball       
         if (ballSpeed >= maxSpeed)
         {
-
-
+            
             ballSpeed = maxSpeed;
 
         }
@@ -71,7 +70,7 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        // Check if hit the Paddle
+
         if (col.gameObject.name == "Paddle" && gameStarted)
         {
             paddleHitCounter++;
