@@ -7,7 +7,7 @@ public class DeathCollider : MonoBehaviour {
     private Paddle paddle;
     private BallScript ball;
 
-    public bool noClones = true;
+
     public Powerup powerup;
 
 
@@ -30,9 +30,6 @@ public class DeathCollider : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
 
-
-
-
         //the ball should go back to paddle only if both the ORIGINAL ball and the CLONE ball are destroyed
         if (coll.gameObject.name == "Ball")
         {
@@ -42,8 +39,6 @@ public class DeathCollider : MonoBehaviour {
             ball.transform.localScale = new Vector3(0, 0, 0);
 
             //if there are no clones, then make it go back to paddle, decrease lives
-            if (noClones)
-            {
 
            
         Debug.Log("Collided!!!");
@@ -62,16 +57,9 @@ public class DeathCollider : MonoBehaviour {
 
         paddle.transform.localScale = new Vector3(5f, 5f, 1f);
 
-            }//end if no clones
+           
         }
 
-        if (coll.gameObject.name == "Ball(Clone)" )       
-        {
-            Destroy(GameObject.Find("Ball(Clone)"));
-
-            noClones = true;
-
-        }
 
     }
 
