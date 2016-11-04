@@ -31,7 +31,7 @@ public class Powerup : MonoBehaviour {
 
        // index = Random.Range(0, typesOfPowerups.Length);
        //more chances for spawning enlarge powerup
-        if(Random.Range(0, 10) <=5 )
+        if(Random.Range(0, 10) <=10 )
         {
             index = 1;
         }

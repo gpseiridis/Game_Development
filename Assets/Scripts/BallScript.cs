@@ -53,7 +53,15 @@ public class BallScript : MonoBehaviour
             ballSpeed = maxSpeed;
 
         }
-        
+
+        //fixed a bug where ball escaped the gamespace 
+        float dist = Vector3.Distance(gameObject.transform.position, paddle.transform.position);
+        Debug.Log("distance between paddle-ball--> " +dist);
+
+        if (dist >= 24f)
+        {
+            gameStarted = false;
+        }
 
 
     }
