@@ -9,23 +9,31 @@ public class LevelManager : MonoBehaviour {
 
     //to xw public gia na vlepw na miwnetai
     private int lives;
-    private int score;
+    
+    private int highScore;
 
+    public int score;
     public int continuousBricks = 0;
     public Text livesText;
     public Text scoreText;
+    public Text highScoreText;
 
     void Start()
     {
        
         lives = PlayerPrefs.GetInt("CurrentLives");
         score = PlayerPrefs.GetInt("Score", score);
+        StoreHighscore(0);
+
+
+
         livesText.text = "Lives: " + lives;
         scoreText.text = "SCORE " + score;
+  
 
     }
     public void LoadLevel(string name) {
-
+        scoreText.text = "SCORE " + score;
         Application.LoadLevel(name);
        // SceneManager.LoadScene(name);
     }
@@ -83,11 +91,27 @@ public class LevelManager : MonoBehaviour {
         PlayerPrefs.SetInt("Score", score);
         scoreText.text = "SCORE " + score;
 
+        StoreHighscore(score);
+
+    }
+
+    public void StoreHighscore(int newHighscore)
+    {
+        int oldHighscore = PlayerPrefs.GetInt("highscore", 0);
+        if (newHighscore > oldHighscore)
+            PlayerPrefs.SetInt("highscore", newHighscore);
+
+        highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("highscore");
+        Debug.Log("lives!!!--> " + lives);
+        
+
     }
 
     public void GameOver()
     {
+        
         LoadLevel("Game Over");
+        
     }
 
 

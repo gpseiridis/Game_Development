@@ -7,7 +7,7 @@ public class BrickScript : MonoBehaviour {
     private int timesHit;
     private LevelManager levelManager;
     private bool Breakable;
-    private int chanceToInvoke = 10;
+    private int chanceToInvoke = 2;
 
     public Powerup powerup;
 
