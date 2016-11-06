@@ -9,6 +9,7 @@ public class BallScript : MonoBehaviour
     public float ballSpeed = 20f;
 
     private Paddle paddle;
+    private LevelManager levelManager;
     //offset
     private Vector3 paddleToBallVector;
 
@@ -24,6 +25,7 @@ public class BallScript : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         paddle = FindObjectOfType<Paddle>();
         paddleToBallVector = this.transform.position - paddle.transform.position;
+        levelManager = FindObjectOfType<LevelManager>();
 
     }
 
@@ -56,9 +58,9 @@ public class BallScript : MonoBehaviour
 
         //fixed a bug where ball escaped the gamespace 
         float dist = Vector3.Distance(gameObject.transform.position, paddle.transform.position);
-        Debug.Log("distance between paddle-ball--> " +dist);
+        //Debug.Log("distance between paddle-ball--> " +dist);
 
-        if (dist >= 24f)
+        if (dist >= 40f)
         {
             gameStarted = false;
         }
@@ -82,6 +84,8 @@ public class BallScript : MonoBehaviour
 
         if (col.gameObject.name == "Paddle" && gameStarted)
         {
+            //score
+            levelManager.continuousBricks = 0;
             paddleHitCounter++;
             //every 5 times the ball hits the paddle, its speed will increase
             if (paddleHitCounter % 5 == 0 )
