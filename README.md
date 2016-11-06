@@ -1,6 +1,6 @@
 # Game_Development
 Game Development using Unity 3D and C# scripting
-
+Code inside /Assets/Scripts/
 Development of a simple Breakout - Arkanoid clone
 
 <br>
