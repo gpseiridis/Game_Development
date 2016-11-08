@@ -12,6 +12,7 @@ public class BallScript : MonoBehaviour
     private LevelManager levelManager;
     //offset
     private Vector3 paddleToBallVector;
+    private const float MAX_ALLOWED_DISTANCE_PADDLE_BALL = 40f;
 
 
 
@@ -60,7 +61,7 @@ public class BallScript : MonoBehaviour
         float dist = Vector3.Distance(gameObject.transform.position, paddle.transform.position);
         //Debug.Log("distance between paddle-ball--> " +dist);
 
-        if (dist >= 40f)
+        if (dist >= MAX_ALLOWED_DISTANCE_PADDLE_BALL)
         {
             gameStarted = false;
         }
