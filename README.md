@@ -1,7 +1,7 @@
 # Game_Development
 Game Development using Unity 3D and C# scripting
  <br>Code inside /Assets/Scripts/ <br> 
-Development of a simple Breakout - Arkanoid clone
+Development of a simple Breakout/Arkanoid clone
 
 <br>
 Added background music based on  <a href="https://soundcloud.com/geopse/2-players-sid-project">one of my songs.</a>
